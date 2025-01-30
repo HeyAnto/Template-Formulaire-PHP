@@ -1,0 +1,26 @@
+%!Adobe-FontList 1.22
+%Locale:0x40c
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:BDOGrotesk-Regular
+FamilyName:BDO Grotesk
+StyleName:Regular
+FullName:BDO Grotesk Regular
+MenuName:BDO Grotesk
+FamilyPrefix:BDOGrotesk
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\User\Desktop\Works\Repositories\PHP\Formulaire-Contact-PHP\assets\Font\BDOGrotesk-VF.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:TrueTypeVariableFont
+FileLength:262620
+FileModTime:1735673549
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,BDO Grotesk
+%EndFont
+

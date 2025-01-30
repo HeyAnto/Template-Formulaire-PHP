@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "BDO Grotesk";
+  src: url(../font/BDOGrotesk-VF.ttf) format("truetype");
+}
+
+:root {
+  /* Couleurs principales */
+  --color-bg-dark: #161e27;
+  --color-bg-grey: #1e2936;
+  --color-white: #f1f3f5;
+  --color-grey: #788ea5;
+
+  /* Couleurs boutons */
+  --color-btn-blue: #208bfe;
+  --color-btn-blue-hover: #4ca2fe;
+  --color-link-blue: #208bfe;
+
+  /* Typographie */
+  --font-family: "BDO Grotesk", "Arial", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Tailles de police */
+  --font-size-p: 1rem;
+
+  /* Line heights */
+  --line-height-tight: 1.2; /* Titre */
+  --line-height-normal: 1.6; /* Paragraphe */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 50px;
+  background-color: var(--color-bg-dark);
+  color: var(--color-white);
+  font-family: var(--font-family);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* Styles typographiques */
+p {
+  font-size: var(--font-size-p);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+
+/* Media */
+@media screen and (max-width: 425px) {
+  body {
+    padding: 10px;
+  }
+}
