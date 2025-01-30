@@ -12,7 +12,24 @@
 </head>
 
 <body>
+    <main>
+        <section class="flex flex-column gap-0">
+            <h1>Formulaire de contact</h1>
+            <p class="p-min">Composant réutilisable d'envoi d'email via un formulaire en PHP, réalisé dans le cadre d'un brief SIMPLON.</p>
+            <div class="flex flex-row gap-10">
+                <a href="https://github.com/HeyAnto/Formulaire-Contact-PHP" target="_blank">
+                    GitHub
+                </a>
+                <p class="p-min">/</p>
+                <a href="https://bsky.app/" target="_blank">
+                    Inspiration Bluesky
+                </a>
+            </div>
+        </section>
 
+        <?php include_once "includes/form.php" ?>
+
+    </main>
 </body>
 
 </html>

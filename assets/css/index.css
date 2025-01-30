@@ -1,3 +1,6 @@
+@import url(form.css);
+@import url(utilities.css);
+
 @font-face {
   font-family: "BDO Grotesk";
   src: url(../font/BDOGrotesk-VF.ttf) format("truetype");
@@ -7,8 +10,10 @@
   /* Couleurs principales */
   --color-bg-dark: #161e27;
   --color-bg-grey: #1e2936;
+  --color-grey: #5e6f82;
+  --color-border-grey: #2e4052;
+  --color-text-grey: #aebbc9;
   --color-white: #f1f3f5;
-  --color-grey: #788ea5;
 
   /* Couleurs boutons */
   --color-btn-blue: #208bfe;
@@ -22,12 +27,14 @@
 
   /* Tailles de police */
   --font-size-p: 1rem;
+  --font-size-h1: 1.5rem;
 
   /* Line heights */
   --line-height-tight: 1.2; /* Titre */
   --line-height-normal: 1.6; /* Paragraphe */
 }
 
+/* Structure */
 * {
   margin: 0;
   padding: 0;
@@ -52,14 +59,40 @@ body {
 main {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 500px;
   gap: 50px;
 }
 
 /* Styles typographiques */
+.p-min {
+  font-size: var(--font-size-p);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-grey);
+}
+
 p {
   font-size: var(--font-size-p);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-normal);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+/* Lien */
+a {
+  width: fit-content;
+  color: var(--color-link-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* Media */

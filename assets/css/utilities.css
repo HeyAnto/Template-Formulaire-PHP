@@ -1,0 +1,21 @@
+/* Flexbox */
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+/* Gap */
+.gap-0 {
+  gap: 0px;
+}
+
+.gap-10 {
+  gap: 10px;
+}
