@@ -20,6 +20,12 @@
   --color-btn-blue-hover: #4ca2fe;
   --color-link-blue: #208bfe;
 
+  /* Couleurs status */
+  --color-status-success-strong: #4caf50;
+  --color-status-success: #172716;
+  --color-status-danger-strong: #f44336;
+  --color-status-danger: #271616;
+
   /* Typographie */
   --font-family: "BDO Grotesk", "Arial", sans-serif;
   --font-weight-regular: 400;
@@ -32,6 +38,11 @@
   /* Line heights */
   --line-height-tight: 1.2; /* Titre */
   --line-height-normal: 1.6; /* Paragraphe */
+}
+
+::selection {
+  background-color: var(--color-white);
+  color: var(--color-bg-dark);
 }
 
 /* Structure */
@@ -82,6 +93,24 @@ h1 {
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
+}
+
+/* Card danger */
+.card-danger {
+  background-color: var(--color-status-danger);
+  color: var(--color-status-danger-strong);
+  border: 1px solid var(--color-status-danger-strong);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* Card succès */
+.card-success {
+  background-color: var(--color-status-success);
+  color: var(--color-status-success-strong);
+  border: 1px solid var(--color-status-success-strong);
+  border-radius: 8px;
+  padding: 8px;
 }
 
 /* Lien */

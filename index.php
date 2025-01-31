@@ -27,9 +27,12 @@
             </div>
         </section>
 
-        <?php include_once "includes/form.php" ?>
+        <?php include_once "./includes/mail.php" ?>
+
+        <?php include_once "./includes/form.php" ?>
 
     </main>
+
 </body>
 
 </html>
