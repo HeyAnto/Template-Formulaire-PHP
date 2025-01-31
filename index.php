@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Formulaire Contact PHP</title>
+    <title>Template Formulaire</title>
 
     <link rel="icon" type="image/svg+xml" href="assets/favico.svg">
     <link rel="stylesheet" href="assets/css/index.css">
@@ -14,7 +14,7 @@
 <body>
     <main>
         <section class="flex flex-column gap-0">
-            <h1>Formulaire de contact</h1>
+            <h1>Template Formulaire</h1>
             <p class="p-min">Composant réutilisable d'envoi d'email via un formulaire en PHP, réalisé dans le cadre d'un brief SIMPLON.</p>
             <div class="flex flex-row gap-10">
                 <a href="https://github.com/HeyAnto/Formulaire-Contact-PHP" target="_blank">

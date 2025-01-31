@@ -1,15 +1,17 @@
 <?php
 
+// Inclusion de l'autoloader de Composer pour charger les dépendances
 require "./vendor/autoload.php";
 
+// Importation classes PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+// Chargement variables d'environnement
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-// Nettoyer les données
+// Nettoyer les données entrantes
 function clear($data)
 {
     $data = trim($data);
@@ -18,10 +20,11 @@ function clear($data)
     return $data;
 }
 
+// Initialisation des variables pour les messages d'erreur et de succès
 $error = null;
 $success = null;
 
-// Vérification des champs
+// Vérification formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prenom = clear($_POST["prenom"]);
     $nom = clear($_POST["nom"]);
@@ -29,15 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $objet = clear($_POST["objet"]);
     $message = clear($_POST["message"]);
 
+    // Validation des champs du formulaire
     if (empty($prenom) || empty($nom) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($objet) || empty($message)) {
         $error = "Veuillez remplir tous les champs correctement.";
     } else {
 
+        // Création instance PHPMailer
         $mail = new PHPMailer(true);
 
         try {
-            // Server settings
-            $mail->SMTPDebug = 0; // Débogage
+            // Configuration du serveur SMTP
+            $mail->SMTPDebug = 0;
             $mail->isSMTP();
             $mail->Host       = $_ENV["mail_Host"];
             $mail->SMTPAuth   = true;
@@ -46,21 +51,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPSecure = $_ENV["mail_SMTPSecure"];
             $mail->Port       = $_ENV["mail_Port"];
 
-            // Recipients
+            // Destinataires
             $mail->setFrom($email, "$prenom $nom");
-            $mail->addAddress("joe@example.net");
+            $mail->addAddress("destinataire@example.com");
 
-            // Character encoding
+            // Encodage des caractères
             $mail->CharSet = "UTF-8";
             $mail->Encoding = "base64";
 
-            // Content
+            // Contenu de l'email
             $mail->isHTML(true);
             $mail->Subject = $objet;
             $mail->Body    = "<b>Prénom:</b> $prenom<br><b>Nom:</b> $nom<br><b>Email:</b> $email<br><br><b>Message:</b> $message";
             $mail->AltBody = "Prénom: $prenom\nNom: $nom\nEmail: $email\nMessage: $message";
 
+            // Envoi de l'email
             $mail->send();
+
             $success = "Message envoyé avec succès.";
         } catch (Exception $e) {
             $error = "Une erreur s'est produite lors de l'envoi du message.";
@@ -69,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!-- Alert Error/Success -->
+<!-- Affichage erreur/succès -->
 <?php if (!empty($error)): ?>
     <div class="card-danger flex flex-column flex-center">
         <?php echo $error ?>
