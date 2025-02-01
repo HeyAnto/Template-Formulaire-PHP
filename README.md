@@ -16,10 +16,9 @@ Ce projet est un template de formulaire de contact simple et sécurisé, dévelo
 
 ```bash
  Template Formulaire PHP
- .
  ┣ 📂assets
  ┃ ┣ 📂css
- ┃ ┃ ┣ 📝form.css
+ ┃ ┃ ┣ 📝form.css (css formulaire)
  ┃ ┃ ┣ 📝index.css
  ┃ ┃ ┗ 📝utilities.css
  ┃ ┣ 📂font
@@ -27,7 +26,7 @@ Ce projet est un template de formulaire de contact simple et sécurisé, dévelo
  ┃ ┗ 🖼️favico.svg
  ┣ 📂includes
  ┃ ┣ 📜.env.exemple (modifiez les valeurs)
- ┃ ┣ 📄form.php
+ ┃ ┣ 📄form.php (formulaire)
  ┃ ┗ 📄mail.php
  ┣ 📁src
  ┣ ⚙️.gitignore
