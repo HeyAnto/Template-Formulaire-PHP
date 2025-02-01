@@ -1,6 +1,6 @@
 # Template Formulaire PHP
 
-J'ai pu travailler sur ce projet avec [**@fanny-saez**](https://github.com/fanny-saez) et été aider par le formateur [**@GuillaumePons63**](https://github.com/GuillaumePons63) :shipit:
+J'ai pu travailler sur ce projet avec [**@fannysaez**](https://github.com/fannysaez) et été aider par le formateur [**@GuillaumePons63**](https://github.com/GuillaumePons63) :shipit:
 
 ## Description du Projet
 
