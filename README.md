@@ -12,29 +12,6 @@ Ce projet est un template de formulaire de contact simple et sécurisé, dévelo
 - [**Composer 2.8.5**](https://getcomposer.org/) ou supérieur
 - Un serveur SMTP pour l'envoi d'emails (ex: Gmail, Outlook, etc.)
 
-## Structure du Projet
-
-```bash
- Template Formulaire PHP
- ┣ 📂assets
- ┃ ┣ 📂css
- ┃ ┃ ┣ 📝form.css (css formulaire)
- ┃ ┃ ┣ 📝index.css
- ┃ ┃ ┗ 📝utilities.css
- ┃ ┣ 📂font
- ┃ ┃ ┗ 🅰️BDOGrotesk-VF.ttf
- ┃ ┗ 🖼️favico.svg
- ┣ 📂includes
- ┃ ┣ 📜.env.exemple (modifiez les valeurs)
- ┃ ┣ 📄form.php (formulaire)
- ┃ ┗ 📄mail.php
- ┣ 📁src
- ┣ ⚙️.gitignore
- ┣ 📜composer.json
- ┣ 📜composer.lock
- ┗ 📄index.php
-```
-
 ## Installation
 
 **1. Cloner le dépôt GitHub**
@@ -60,14 +37,24 @@ composer install
 
 **3. Configurer les variables d'environnement**
 <br>
-Renommez le fichier `.env.exemple` en `.env` et modifiez les valeurs suivantes avec vos informations SMTP :
+Vous trouverez `.env.exemple` dans le dossier includes.
+<br>
+Renommez le en `.env`, puis modifiez les valeurs suivantes avec vos informations SMTP :
 
 ```env
 mail_Host = "votre_smtp_host"
+
+# Nom d'utilisateur pour l'authentification SMTP
+# Peut être une adresse email ou un identifiant selon votre fournisseur SMTP
 mail_Username = "votre_email"
 mail_Password = "votre_mot_de_passe"
+
+# Type de chiffrement SMTP (tls ou ssl selon votre fournisseur)
 mail_SMTPSecure = "PHPMailer::ENCRYPTION_STARTTLS"
 mail_Port = 587
+
+# Email de l'administrateur qui recevra les messages
+admin_Email = "votre_email_admin"
 ```
 
 Exemple pour Gmail :
@@ -76,19 +63,44 @@ Exemple pour Gmail :
 mail_Host = "smtp.gmail.com"
 mail_Username = "votre@gmail.com"
 mail_Password = "votre_mot_de_passe"
-mail_SMTPSecure = "PHPMailer::ENCRYPTION_STARTTLS"
+mail_SMTPSecure = "tls"
 mail_Port = 587
+admin_Email = "votre@gmail.com"
 ```
 
 <br>
 
-**4. Configurer le destinataire**
+**4. Type de chiffrement SMTP**
+<br>
+Le paramètre mail_SMTPSecure définit la méthode de chiffrement utilisée pour sécuriser la connexion avec le serveur SMTP. Voici les options disponibles :
+
+`tls` (Transport Layer Security) → Recommandé
+
+**Utilisé sur le port 587**
+<br>
+Offre un bon niveau de sécurité tout en restant compatible avec la plupart des fournisseurs SMTP.
+<br>
+Exemples : Gmail, Outlook, Yahoo
+<br>
+`ssl` (Secure Sockets Layer)
+
+**Utilisé sur le port 465**
+<br>
+Peut être nécessaire pour certains anciens serveurs SMTP.
+<br>
+Si vous n’êtes pas sûr du chiffrement à utiliser, essayez `tls` en premier.
+
+<br>
+
+**5. Configurer le destinataire**
 <br>
 Dans le fichier `mail.php`, modifiez l'adresse email du destinataire :
 
 ```php
 $mail->addAddress("destinataire@example.com");
 ```
+
+<br>
 
 ## Utilisation
 

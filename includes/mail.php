@@ -53,7 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Destinataires
             $mail->setFrom($email, "$prenom $nom");
-            $mail->addAddress("destinataire@example.com");
+            $mail->addAddress($_ENV["admin_Email"]);
+
 
             // Encodage des caractères
             $mail->CharSet = "UTF-8";
@@ -78,13 +79,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!-- Affichage erreur/succès -->
 <?php if (!empty($error)): ?>
-    <div class="card-danger flex flex-column flex-center">
-        <?php echo $error ?>
-    </div>
+<div class="card-danger flex flex-column flex-center">
+    <?php echo $error ?>
+</div>
 <?php endif; ?>
 
 <?php if (!empty($success)): ?>
-    <div class="card-success flex flex-column flex-center">
-        <?php echo $success ?>
-    </div>
+<div class="card-success flex flex-column flex-center">
+    <?php echo $success ?>
+</div>
 <?php endif; ?>
