@@ -15,7 +15,8 @@
     <main>
         <section class="flex flex-column gap-0">
             <h1>Template Formulaire</h1>
-            <p class="p-min">Composant réutilisable d'envoi d'email via un formulaire en PHP, réalisé dans le cadre d'un brief SIMPLON.</p>
+            <p class="p-min">Composant réutilisable d'envoi d'email via un formulaire en PHP,
+                réalisé dans le cadre d'un brief SIMPLON.</p>
             <div class="flex flex-row gap-10">
                 <a href="https://github.com/HeyAnto/Formulaire-Contact-PHP" target="_blank">
                     GitHub
