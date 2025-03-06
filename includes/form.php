@@ -1,4 +1,4 @@
-<form id="contactForm" method="POST" action="">
+<form method="POST" action="">
 
     <section>
         <div>
