@@ -11,6 +11,10 @@ use PHPMailer\PHPMailer\Exception;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+// Variables d'environnement attendues :
+// MAIL_FROM : adresse e-mail expéditeur
+// mail_Host, mail_Username, mail_Password, mail_SMTPSecure, mail_Port, admin_Email
+
 // Nettoyer les données entrantes
 function clear($data)
 {
@@ -52,8 +56,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Port       = $_ENV["mail_Port"];
 
             // Destinataires
-            $mail->setFrom($email, "$prenom $nom");
-            $mail->addAddress($_ENV["admin_Email"]);
+
+                // Utiliser l'expéditeur depuis la variable d'environnement
+                $mail->setFrom($_ENV["MAIL_FROM"], "Formulaire Contact");
+                // Ajouter le visiteur en Reply-To
+                $mail->addReplyTo($email, "$prenom $nom");
+                // Destinataire principal
+                $mail->addAddress($_ENV["admin_Email"]);
 
 
             // Encodage des caractères
@@ -67,11 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->AltBody = "Prénom: $prenom\nNom: $nom\nEmail: $email\nMessage: $message";
 
             // Envoi de l'email
-            $mail->send();
-
-            $success = "Message envoyé avec succès.";
-        } catch (Exception $e) {
-            $error = "Une erreur s'est produite lors de l'envoi du message.";
+                $mail->send();
+                $success = "Message envoyé avec succès.";
+            } catch (Exception $e) {
+                $error = "Erreur lors de l'envoi du message : " . $mail->ErrorInfo;
         }
     }
 }

@@ -39,33 +39,29 @@ composer install
 <br>
 Vous trouverez `.env.exemple` dans le dossier includes.
 <br>
-Renommez le en `.env`, puis modifiez les valeurs suivantes avec vos informations SMTP :
+
+Renommez-le en `.env`, puis modifiez les valeurs suivantes avec vos informations SMTP (syntaxe compatible PHP dotenv, sans espaces ni guillemets) :
 
 ```env
-mail_Host = "votre_smtp_host"
-
-# Nom d'utilisateur pour l'authentification SMTP
-# Peut être une adresse email ou un identifiant selon votre fournisseur SMTP
-mail_Username = "votre_email"
-mail_Password = "votre_mot_de_passe"
-
-# Type de chiffrement SMTP (tls ou ssl selon votre fournisseur)
-mail_SMTPSecure = "PHPMailer::ENCRYPTION_STARTTLS"
-mail_Port = 587
-
-# Email de l'administrateur qui recevra les messages
-admin_Email = "votre_email_admin"
+MAIL_FROM=expediteur@votre-domaine.com
+mail_Host=smtp.votre-domaine.com
+mail_Username=utilisateur_smtp
+mail_Password=mot_de_passe_smtp
+mail_SMTPSecure=tls
+mail_Port=587
+admin_Email=destinataire@votre-domaine.com
 ```
 
 Exemple pour Gmail :
 
 ```env
-mail_Host = "smtp.gmail.com"
-mail_Username = "votre@gmail.com"
-mail_Password = "votre_mot_de_passe"
-mail_SMTPSecure = "tls"
-mail_Port = 587
-admin_Email = "votre@gmail.com"
+MAIL_FROM=votre@gmail.com
+mail_Host=smtp.gmail.com
+mail_Username=votre@gmail.com
+mail_Password=mot_de_passe_gmail
+mail_SMTPSecure=tls
+mail_Port=587
+admin_Email=votre@gmail.com
 ```
 
 <br>
@@ -92,13 +88,11 @@ Si vous n’êtes pas sûr du chiffrement à utiliser, essayez `tls` en premier.
 
 <br>
 
-**5. Configurer le destinataire**
+**5. Configuration expéditeur et destinataire**
 <br>
-Dans le fichier `mail.php`, modifiez l'adresse email du destinataire :
+L'adresse e-mail expéditeur (`MAIL_FROM`) et le destinataire principal (`admin_Email`) sont maintenant configurés directement dans le fichier `.env`. Plus besoin de modifier le code PHP.
 
-```php
-$mail->addAddress("destinataire@example.com");
-```
+L'expéditeur affiché dans l'e-mail sera celui de `MAIL_FROM`, et le visiteur sera ajouté en "Reply-To" pour faciliter la réponse.
 
 <br>
 
@@ -122,7 +116,7 @@ $mail->addAddress("destinataire@example.com");
 
 **3. Vérifier l'email**
 
-- Le destinataire configuré dans `mail.php` recevra un email avec les informations du formulaire.
+- Le destinataire configuré dans `.env` (`admin_Email`) recevra un email avec les informations du formulaire.
 
 ## Ressources Utiles
 
